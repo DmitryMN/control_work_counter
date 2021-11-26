@@ -1,0 +1,20 @@
+.viewFiled {
+    display: flex;
+    width: 200px;
+    height: 60px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.viewFiled span {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+}
+.indicate {
+    color: #32bce5;
+}
+.is_error {
+    color: red;
+    border-radius: 5px;
+}
