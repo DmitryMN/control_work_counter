@@ -9,25 +9,25 @@ type CounterContainerType = {
     error: boolean
     setCounterValues: (min: number, max: number) => void
     setError: (value: boolean) => void
+    onIndicator: (ind: boolean) => void
+    indicator: boolean
+    setValueMin: (value: number) => void
+    setValueMax: (value: number) => void
 }
 
-const CounterContainerSet = ({min, max, error, setCounterValues, setError}: CounterContainerType) => {
-
-    let value = 0;
-    let maxs = 2;
-
-    const [valueMin, setValueMin] = useState<number>(min);
-    const [valueMax, setValueMax] = useState<number>(max);
+const CounterContainerSet = ({min, max, error, setCounterValues, setError, onIndicator, indicator, setValueMin, setValueMax}: CounterContainerType) => {
 
     const onClickCallBack = () => {
-        setCounterValues(valueMin, valueMax);
+        onIndicator(true);
+        setCounterValues(min, max);
     }
+
 
     return(
         <div className="counter_container">
-            <SetCounter min={valueMin} max={valueMax} error={error} setValueMin={setValueMin} setValueMax={setValueMax} setError={setError}/>
+            <SetCounter valueMin={min} valueMax={max} error={error} setValueMin={setValueMin} setValueMax={setValueMax} setError={setError} onIndicator={onIndicator}/>
             <div className="btn_container">
-                <Button name={"set"} callBack={onClickCallBack} disabledBtn={value === maxs}/>
+                <Button name={"set"} callBack={onClickCallBack} disabledBtn={indicator}/>
             </div>
         </div>
     );

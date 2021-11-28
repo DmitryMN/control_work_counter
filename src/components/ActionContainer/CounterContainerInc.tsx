@@ -7,15 +7,16 @@ import {CounterStateType} from "../Counter";
 type CounterContainerIncPropsType = {
     counter: CounterStateType
     error: boolean
+    indicator: boolean
     incrementValue: () => void
     resetValue: () => void
 }
 
-const CounterContainerInc = ({counter, error, incrementValue, resetValue}: CounterContainerIncPropsType) => {
+const CounterContainerInc = ({counter, error, indicator, incrementValue, resetValue}: CounterContainerIncPropsType) => {
 
     return(
         <div className="counter_container">
-            <ViewField currValue={counter.currValue} max={counter.max} error={error}/>
+            <ViewField currValue={counter.currValue} max={counter.max} error={error} indicator={indicator}/>
             <ActionContainer currValue={counter.currValue} max={counter.max} min={counter.min} incrementValue={incrementValue} resetValue={resetValue} />
         </div>
     );
